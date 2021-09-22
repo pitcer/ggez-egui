@@ -54,7 +54,7 @@ impl Painter {
 pub fn egui_texture_to_ggez(ctx: &mut ggez::Context, egui_texture: &egui::Texture) -> ggez::GameResult<Option<graphics::Image>> {
 	let mut pixels: Vec<u8> = Vec::with_capacity(egui_texture.pixels.len() * 4);
 
-	for srgba in egui_texture.srgba_pixels() {
+	for srgba in egui_texture.srgba_pixels(1.0) {
 		pixels.extend(srgba.to_array());
 	}
 
